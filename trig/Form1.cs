@@ -15,6 +15,24 @@ namespace trig
         public Form1()
         {
             InitializeComponent();
+
+            richTextBox1.AppendText("sin(180) =" + sin(180) + "\n");
+            richTextBox1.AppendText("sin-1(1) =" + asin(1) + "\n");
         }
+
+        double sin(double x)
+        {
+            return (Math.Sin(x * Math.PI / 180));
+        }
+
+        double asin(double x)
+        {
+            return (Math.Asin(x) * 180 / Math.PI);
+        }
+        private void richTextBox1_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
     }
 }
