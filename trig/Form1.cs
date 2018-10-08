@@ -16,23 +16,48 @@ namespace trig
         {
             InitializeComponent();
 
-            richTextBox1.AppendText("sin(180) =" + sin(180) + "\n");
-            richTextBox1.AppendText("sin-1(1) =" + asin(1) + "\n");
         }
 
         double sin(double x)
         {
-            return (Math.Sin(x * Math.PI / 180));
+            return (Math.Sin(x * Math.PI / 180.0));
+        }
+
+        double cos(double x)
+        {
+            return (Math.Cos (x * Math.PI / 180.0));
         }
 
         double asin(double x)
         {
             return (Math.Asin(x) * 180 / Math.PI);
         }
-        private void richTextBox1_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
+       
 
+        private async void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                double F = Convert.ToDouble(textBox1.Text);
+                double A = Convert.ToDouble(textBox2.Text);
+                double Fy = F * cos(A);
+                label1.Text = Fy.ToString();
+            }
+           catch
+            {
+                MessageBox.Show("input needs to be a number!!!");
+            }
+            try
+            {
+                double F = Convert.ToDouble(textBox1.Text);
+                double A = Convert.ToDouble(textBox2.Text);
+                double Fx = F * sin(A);
+                label4.Text = Fx.ToString();
+            }
+            catch
+            {
+                MessageBox.Show("input needs to be a umber!!!");
+            }
+        }
     }
 }
